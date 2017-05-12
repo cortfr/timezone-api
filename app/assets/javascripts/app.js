@@ -12,7 +12,23 @@ app.controller('formController', function($scope, $http) {
 
   $scope.submitForm = function() {
     console.log("posting data....", $scope.zipcode);
-    //$http.post('http://...', JSON.stringify(data)).success(function(){/*success callback*/});
+
+    var data = {
+      zipcode: $scope.zipcode
+    };
+
+    $http.post('/zipcodes/find', JSON.stringify(data)).then(function(resp){
+      var tzName = resp.data.tz_name;
+      var zipcode = resp.data.zipcode;
+
+      // show results on map...
+      map.setView([zipcode.lat, zipcode.lng], 14);
+      var marker = L.marker([zipcode.lat, zipcode.lng]).addTo(map).bindPopup(tzName).openPopup();
+
+    }, function(resp){
+      console.log('err', resp);
+    });
+
     return false;
   };
 
