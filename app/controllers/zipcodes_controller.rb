@@ -7,7 +7,7 @@ class ZipcodesController < ApplicationController
       render json: {
         status: 200,
         tz_name: tz.tzinfo.name,
-        zipcode: zip
+        zipcode: zip.slice('city', 'dst', 'lat', 'lng', 'state', 'utc_offset', 'zipcode')
       }
     else
       render status: 404, json: {

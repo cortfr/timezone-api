@@ -44,7 +44,6 @@ app.controller('formController', function($scope, $http) {
       $http.post('/zipcodes/find', JSON.stringify(requestBody)).then(function(resp){
         var tzName = resp.data.tz_name;
         var zipcode = resp.data.zipcode;
-        console.log(resp);
         $scope.mapZipcode(map, tzName, zipcode);
       }, function(resp){
         $scope.showValidationErrors(resp.data.errors);
