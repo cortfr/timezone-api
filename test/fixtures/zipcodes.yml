@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zipcode: 1
+  city: MyString
+  state: MyString
+  lat: 9.99
+  lng: 9.99
+  utc_offset: 1
+  dst: false
+
+two:
+  zipcode: 1
+  city: MyString
+  state: MyString
+  lat: 9.99
+  lng: 9.99
+  utc_offset: 1
+  dst: false
