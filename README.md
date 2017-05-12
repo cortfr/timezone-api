@@ -11,7 +11,7 @@ In production and staging, you will need to create a database and import zip cod
 
 ## API Usage
 
-To use the API, send a post request to `/zipcodes/find` with the following JSON body:
+To use the API, send a post request to `/zipcodes/find` with the following stringified JSON in the request body:
 
 ```javascript
   { zipcode: 'zip code value' }
@@ -21,15 +21,21 @@ Given a successful request, this method should return an object named "data" con
 
 ```javascript
   {
-    tz_name: time zone name according to ActiveSupport (string),
+    tz_name: (Time zone name according to ActiveSupport - string),
     zipcode: {
-      city: City name for zip code (string),
-      dst: Does zip code observe daylight savings time (boolean),
-      lat: WGS84 DD Latitude for zip code (decimal),
-      lng: WGS84 DD Longitude for zip code (decimal),
-      state: State abbreviation for zip code (string),
-      utc_offset: UTC offset for zip code (integer),
-      zipcode: Zip code (integer)
+      city: (City name for zip code - string),
+      dst: (Does zip code observe daylight savings time - boolean),
+      lat: (WGS84 DD Latitude for zip code - decimal),
+      lng: (WGS84 DD Longitude for zip code - decimal),
+      state: (State abbreviation for zip code - string),
+      utc_offset: (UTC offset for zip code  - integer),
+      zipcode: (Zip code  - integer)
     }
   }
 ```
+
+If the method is unable to find a time zone record for the provided zip code, the method will return a 404 response.
+
+## Test console
+
+This API comes with a "test console" Angular 1.x application available at the root path.  Please use the network tab in Chrome dev tools to preview requests being made on behalf of the Angular app.

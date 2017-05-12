@@ -4,8 +4,7 @@ class ZipcodesController < ApplicationController
     zip = Zipcode.find_by_zipcode(params[:zipcode])
     if zip.present?
       tz = ActiveSupport::TimeZone[zip.utc_offset]
-      render json: {
-        status: 200,
+      render status: 200, json: {
         tz_name: tz.tzinfo.name,
         zipcode: zip.slice('city', 'dst', 'lat', 'lng', 'state', 'utc_offset', 'zipcode')
       }
