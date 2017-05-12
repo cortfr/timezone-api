@@ -21,15 +21,15 @@ Given a successful request, this method should return an object named "data" con
 
 ```javascript
   {
-    tz_name: 'time zone name according to ActiveSupport (string)',
+    tz_name: time zone name according to ActiveSupport (string),
     zipcode: {
-      city: 'City name for zip code (string)'
-      dst: 'Does zip code observe daylight savings time (boolean)'
-      lat: 'WGS84 DD Latitude for zip code (decimal)',
-      lng: 'WGS84 DD Longitude for zip code (decimal)',
-      state: 'State abbreviation for zip code (string)',
-      utc_offset: 'UTC offset for zip code (integer)',
-      zipcode: 'Zip code (integer)'
+      city: City name for zip code (string),
+      dst: Does zip code observe daylight savings time (boolean),
+      lat: WGS84 DD Latitude for zip code (decimal),
+      lng: WGS84 DD Longitude for zip code (decimal),
+      state: State abbreviation for zip code (string),
+      utc_offset: UTC offset for zip code (integer),
+      zipcode: Zip code (integer)
     }
   }
 ```
