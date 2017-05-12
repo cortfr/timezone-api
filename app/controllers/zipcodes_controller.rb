@@ -10,8 +10,7 @@ class ZipcodesController < ApplicationController
         zipcode: zip
       }
     else
-      render json: {
-        status: 404,
+      render status: 404, json: {
         errors: 'Zipcode not found'
       }
     end

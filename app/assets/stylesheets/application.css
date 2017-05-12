@@ -29,5 +29,8 @@
   right: 10px;
   top: 10px;
   z-index: 999;
+}
 
+.help-block {
+  font-weight: bold;
 }
