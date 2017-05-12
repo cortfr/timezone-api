@@ -10,6 +10,24 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require leaflet/dist/leaflet
  *= require_tree .
  *= require_self
  */
+
+ body {
+     padding: 0;
+     margin: 0;
+ }
+ html, body, #map {
+     height: 100vh;
+     width: 100vw;
+ }
+
+#search {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
+
+}

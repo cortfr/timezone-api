@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require leaflet/dist/leaflet
+//= require leaflet-providers/leaflet-providers
 //= require_tree .
