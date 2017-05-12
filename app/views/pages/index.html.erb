@@ -3,13 +3,17 @@
   <div id="map"></div>
 
 	<div id="search">
-    <form name="lookupZipcode" class="form-inline" ng-controller="formController" ng-submit="submitForm()">
+    <form name="zipcodeForm" class="form-inline" ng-controller="formController" ng-submit="submitForm(zipcodeForm.$valid)" novalidate>
       <div class="form-group">
-		    <input type="text" class="form-control" placeholder="Enter zipcode" ng-model="zipcode" />
+		    <input type="text" class="form-control" placeholder="Enter zip code" ng-model="zipcode" required />
       </div>
-      <button type="submit" class="btn btn-primary">Lookup Timezone Info</button>
+      <button type="submit" class="btn btn-primary">Lookup Time Zone Info</button>
       <div class="help-block"></div>
     </form>
 	</div>
+
+  <div id="title">
+    <h2>Time Zone Lookup</h2>
+  </div>
 
 </div>
