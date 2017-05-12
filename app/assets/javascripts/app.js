@@ -23,8 +23,10 @@ app.controller('formController', function($scope, $http) {
 
       // show results on map...
       map.setView([zipcode.lat, zipcode.lng], 14);
-      var marker = L.marker([zipcode.lat, zipcode.lng]).addTo(map).bindPopup(tzName).openPopup();
-
+      // invoke popup...
+      var popupContent = '<b>Zipcode:</b> ' + zipcode.zipcode + '<br />';
+      popupContent += '<b>ActiveSupport TimeZone</b>:<br />' + tzName + ' (UTC' + zipcode.utc_offset + ')<br />';
+      var marker = L.marker([zipcode.lat, zipcode.lng]).addTo(map).bindPopup(popupContent).openPopup();
     }, function(resp){
       console.log('err', resp);
     });
