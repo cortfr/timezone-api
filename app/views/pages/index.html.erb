@@ -2,6 +2,11 @@
 
   <div id="map"></div>
 
+  <div id="title">
+    <h2>Time Zone Lookup</h2>
+    <div>Please enter a zip code to get started.</div>
+  </div>
+
 	<div id="search">
     <form name="zipcodeForm" class="form-inline" ng-controller="formController" ng-submit="submitForm(zipcodeForm.$valid)" novalidate>
       <div class="form-group">
@@ -12,9 +17,15 @@
     </form>
 	</div>
 
-  <div id="title">
-    <h2>Time Zone Lookup</h2>
-    <div>Please enter a zip code to get started.</div>
+  <div id="testConsole" class="panel">
+    <h4>API Test Console</h4>
+    <form name="testConsoleForm" ng-controller="testConsoleController" ng-submit="testConsoleForm(zipcodeForm.$valid)" novalidate>
+      <div class="form-group">
+        <textarea id="requestBodyInput" class="form-control" ng-model="requestBody" placeholder='{ "zipcode": 97701 }'></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary pull-right">Submit API request</button>
+      <div class="help-block"></div>
+    </form>
   </div>
 
 </div>

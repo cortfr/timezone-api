@@ -33,9 +33,22 @@
 
 #search {
   position: absolute;
-  right: 10px;
-  top: 30px;
+  left: 10px;
+  top: 90px;
   z-index: 999;
+}
+
+#testConsole {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
+  text-shadow: 2px 2px #fff;
+  padding: 10px;
+}
+
+#requestBodyInput {
+  width: 321px !important;
 }
 
 .help-block {

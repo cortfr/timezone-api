@@ -57,3 +57,6 @@ app.controller('formController', function($scope, $http) {
   };
 
 });
+
+app.controller('testConsoleController', function($scope, $http) {
+});
