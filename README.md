@@ -38,4 +38,8 @@ If the method is unable to find a time zone record for the provided zip code, th
 
 ## Test console
 
-This API comes with a "test console" Angular 1.x application available at the root path.  Please use the network tab in Chrome dev tools to preview requests being made on behalf of the Angular app.
+This API comes with a "test console" Angular 1.x application available at the root path.
+
+## Testing
+
+To run the test suite, run `rake test`.  A test database has been checked in for your convenience.
