@@ -1,5 +1,14 @@
 class ZipcodesController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_filter :ensure_json_request
+
+  def ensure_json_request
+    return if request.format == :json
+    render status: 406, json: {
+      errors: 'Endpoint only accepts JSON'
+    }
+  end
+
   def find
     if params[:zipcode].present?
       zip = Zipcode.find_by_zipcode(params[:zipcode])
