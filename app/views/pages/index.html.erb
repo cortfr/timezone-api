@@ -3,27 +3,21 @@
   <div id="map"></div>
 
   <div id="title">
-    <h2>Time Zone Lookup</h2>
-    <div>Please enter a zip code to get started.</div>
+    <h2>Time Zone Lookup API Test Console</h2>
   </div>
 
-	<div id="search">
-    <form name="zipcodeForm" class="form-inline" ng-controller="formController" ng-submit="submitForm(zipcodeForm.$valid)" novalidate>
-      <div class="form-group">
-		    <input type="text" class="form-control" placeholder="Enter zip code" ng-model="zipcode" required />
-      </div>
-      <button type="submit" class="btn btn-primary">Lookup Time Zone Info</button>
-      <div class="help-block"></div>
-    </form>
-	</div>
-
   <div id="testConsole" class="panel">
-    <h4>API Test Console</h4>
-    <form name="testConsoleForm" ng-controller="testConsoleController" ng-submit="testConsoleForm(zipcodeForm.$valid)" novalidate>
-      <div class="form-group">
-        <textarea id="requestBodyInput" class="form-control" ng-model="requestBody" placeholder='{ "zipcode": 97701 }'></textarea>
+    <form name="testConsoleForm" ng-controller="testConsoleController" ng-submit="submitForm(testConsoleForm.$valid)" novalidate>
+      <div class="input-form-group form-group">
+        <label for="requestBodyInput">Request Body</label>
+        <textarea id="requestBodyInput" class="form-control" ng-model="requestBody" placeholder='{ "zipcode": 97701 }' required></textarea>
+        <div class="help-block"></div>
       </div>
-      <button type="submit" class="btn btn-primary pull-right">Submit API request</button>
+      <div class="form-group">
+        <label for="requestResponseInput">Request Response</label>
+        <textarea id="requestResponseInput" class="form-control" ng-model="requestResponse" placeholder='Submit request to get response' readonly></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary pull-right">Post API request</button>
       <div class="help-block"></div>
     </form>
   </div>

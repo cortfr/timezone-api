@@ -1,6 +1,6 @@
-var app = angular.module('LookupTZ', []);
+var app = angular.module('LookupTZ', [])
 
-app.controller('formController', function($scope, $http) {
+app.controller('testConsoleController', function($scope, $http) {
 
   // init...
   // initialize map...
@@ -25,38 +25,39 @@ app.controller('formController', function($scope, $http) {
 
   // shows validation errors...
   $scope.showValidationErrors = function(msg) {
-    $('.help-block').html(msg);
-    $('.form-group').addClass('has-error');
+    if (typeof(msg) !== 'undefined') {
+      $('.help-block').html(msg);
+    }
+    $('.input-form-group').addClass('has-error');
   };
 
   // handles form submit...
   $scope.submitForm = function(isValid) {
 
     $('.help-block').empty();
-    $('.form-group').removeClass('has-error');
+    $('.input-form-group').removeClass('has-error');
 
     if (isValid) {
+      $http.post('/zipcodes/find', JSON.parse($scope.requestBody)).then(function(resp){
 
-      var requestBody = {
-        zipcode: $scope.zipcode
-      };
-
-      $http.post('/zipcodes/find', JSON.stringify(requestBody)).then(function(resp){
+        $('#requestResponseInput').val(JSON.stringify(resp));
         var tzName = resp.data.tz_name;
         var zipcode = resp.data.zipcode;
         $scope.mapZipcode(map, tzName, zipcode);
-      }, function(resp){
-        $scope.showValidationErrors(resp.data.errors);
-      });
 
+      }, function(resp){
+
+        console.log(resp)
+
+        $('#requestResponseInput').val(JSON.stringify(resp));
+        $scope.showValidationErrors();
+
+      });
     } else {
-      $scope.showValidationErrors('Zip code is required');
+      $scope.showValidationErrors('Request body cannot be blank');
     }
 
     return false;
   };
 
-});
-
-app.controller('testConsoleController', function($scope, $http) {
 });

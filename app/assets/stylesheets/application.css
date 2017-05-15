@@ -31,13 +31,6 @@
   text-shadow: 2px 2px #fff;
 }
 
-#search {
-  position: absolute;
-  left: 10px;
-  top: 90px;
-  z-index: 999;
-}
-
 #testConsole {
   position: absolute;
   right: 10px;
@@ -47,8 +40,12 @@
   padding: 10px;
 }
 
-#requestBodyInput {
-  width: 321px !important;
+textarea {
+  width: 350px !important;
+}
+
+#requestResponseInput {
+  height: 200px;
 }
 
 .help-block {
