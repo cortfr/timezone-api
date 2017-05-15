@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  zipcode: 1
-  city: MyString
-  state: MyString
-  lat: 9.99
-  lng: 9.99
-  utc_offset: 1
-  dst: false
+  zipcode: 95404
+  city: Santa Rosa
+  state: CA
+  lat: 38.43
+  lng: -122.67
+  utc_offset: -8
+  dst: true
 
 two:
-  zipcode: 1
-  city: MyString
-  state: MyString
-  lat: 9.99
-  lng: 9.99
-  utc_offset: 1
-  dst: false
+  zipcode: 97701
+  city: Bend
+  state: OR
+  lat: 44.09
+  lng: -121.10
+  utc_offset: -8
+  dst: true
