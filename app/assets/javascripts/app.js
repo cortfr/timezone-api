@@ -46,7 +46,7 @@ app.controller('testConsoleController', function($scope, $http) {
     $('.input-form-group').removeClass('has-error');
     if (isValid) {
       if ($scope.isJSON($scope.requestBody)) {
-        $http.post('/zipcodes/find', JSON.parse($scope.requestBody), { headers: {'Content-Type': 'application/json'} }).then(function(resp){
+        $http.post('/zipcodes/find', JSON.parse($scope.requestBody), { headers: {'Content-Type': 'application/json; charset=utf-8;'} }).then(function(resp){
 
           $('#requestResponseInput').val(JSON.stringify(resp));
           var tzName = resp.data.tz_name;
