@@ -1,11 +1,11 @@
 class ZipcodesController < ApplicationController
-  skip_before_filter :verify_authenticity_token
-  #before_filter :ensure_json_request
+  skip_before_action :verify_authenticity_token
+  #before_action :ensure_json_request
 
   def ensure_json_request
     return if request.format == :json
     render status: 406, json: {
-      errors: 'Endpoint only accepts JSON'
+      errors: 'Service accepts JSON only'
     }
   end
 
