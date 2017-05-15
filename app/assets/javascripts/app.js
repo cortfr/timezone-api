@@ -31,32 +31,38 @@ app.controller('testConsoleController', function($scope, $http) {
     $('.input-form-group').addClass('has-error');
   };
 
+  $scope.isJSON = function(str) {
+    try {
+      JSON.parse(str);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  };
+
   // handles form submit...
   $scope.submitForm = function(isValid) {
-
     $('.help-block').empty();
     $('.input-form-group').removeClass('has-error');
-
     if (isValid) {
-      $http.post('/zipcodes/find', JSON.parse($scope.requestBody)).then(function(resp){
+      if ($scope.isJSON($scope.requestBody)) {
+        $http.post('/zipcodes/find', JSON.parse($scope.requestBody)).then(function(resp){
 
-        $('#requestResponseInput').val(JSON.stringify(resp));
-        var tzName = resp.data.tz_name;
-        var zipcode = resp.data.zipcode;
-        $scope.mapZipcode(map, tzName, zipcode);
+          $('#requestResponseInput').val(JSON.stringify(resp));
+          var tzName = resp.data.tz_name;
+          var zipcode = resp.data.zipcode;
+          $scope.mapZipcode(map, tzName, zipcode);
 
-      }, function(resp){
-
-        console.log(resp)
-
-        $('#requestResponseInput').val(JSON.stringify(resp));
-        $scope.showValidationErrors();
-
-      });
+        }, function(resp){
+          $('#requestResponseInput').val(JSON.stringify(resp));
+          $scope.showValidationErrors();
+        });
+      } else {
+        $scope.showValidationErrors('Request body must be valid JSON');
+      }
     } else {
       $scope.showValidationErrors('Request body cannot be blank');
     }
-
     return false;
   };
 
