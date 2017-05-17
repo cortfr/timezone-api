@@ -13,9 +13,11 @@ class ZipcodesController < ApplicationController
     if params[:zipcode].present?
       zip = Zipcode.find_by_zipcode(params[:zipcode])
       if zip.present?
-        tz = ActiveSupport::TimeZone[zip.utc_offset]
+        #tz = ActiveSupport::TimeZone[zip.utc_offset]
+        tzinfo = Timezone.lookup(zip.lat, zip.lng)
+        timezone = ActiveSupport::TimeZone::MAPPING.key(tzinfo.name)
         render status: 200, json: {
-          tz_name: tz.name,
+          tz_name: timezone,
           zipcode: zip.slice('city', 'dst', 'lat', 'lng', 'state', 'utc_offset', 'zipcode')
         }
       else
